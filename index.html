@@ -1,362 +1,273 @@
-<！doctype！doctype 超文本标记语言>>
-<超文本标记语言<html 朗="zh-CN">Lang="zh-CN">
-<头>
-<元 字符集="UTF-8"><元 字符集="UTF-8">
-<元名称=“视口”内容=“宽度=设备宽度，初始比例=1.0”><元 姓名="视口" 内容="宽度=设备宽度，初始比例=1.0">
-<标题>花扇的资源</标题><标题>花扇的资源</标题>
-<链接 rel=链接href=rel>hreflink=
-<风格><
-*{{
-页边距：0；边缘：0;
-填充：0；填充：0;
-框大小：边框框；箱体尺寸：边框框;
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花扇的资源</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-正文{身体 {
-背景：#0a051a；背景：#0a051a；
-字体系列：“”微软雅黑"，无衬线；字体系列：“”微软雅黑",无衬线;
-填料：30px20px；padding:30PX20PX；
-overflow-y：自动；溢流y：自动；
+        body {
+            background: #0a051a;
+            font-family: "微软雅黑", sans-serif;
+            padding: 30px 20px;
+            overflow-y: auto;
         }
 
-。星星{星星.{
-位置：固定；位置：确定的;
-顶端:0: 0;
-左：0；左：0;
-宽度：100%；宽度: 100%;
-高度：100%；高度：100%；
-指针事件：无；指针事件：没有一个;
-Z指数：1；z指数：1；
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
-。 星星{星星.星星跨度 {
-位置：绝对；位置：绝对的;
-背景：#FFF；背景：#FFF；
-边界半径：50%；b有序半径：50%；
-动画：Starflash3s线性无限；动画：星闪3s线性的无限的；
+        .stars span {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: starFlash 3s linear infinite;
         }
-@keyframes 星闪{
-0%, 100% { 不透明度: 0.2; }
-50% { 不透明度: 1; }
-        }
-
-.雨 {
-位置: 确定的;
-顶端: 0;
-左: 0;
-宽度: 100%;
-高度: 100%;
-指针事件: 没有一个;
-Z指数：2；
-}
-.雨 跨度{
-位置: 绝对的;
-宽度：1PX；
-背景：线性梯度(透明的，#99ccff)；
-动画：降雨1s线性的无限的；
-        }
-@keyframes 降雨
-0%{改变：translateY(-10px)；不透明度：0；}
-30%{不透明度: 0.8;}
-100%{改变：translateY(100VH)；不透明度：0；}
-}
-
-.内容包装器 {
-位置: 相对的;
-Z指数：3；
-最大宽度：350px；
-边缘: 0 自动;
-显示: 弯曲;
-挠曲方向: 柱;
-对齐项目: 中心;
-差距：20px；/*缩小了间距*/
+        @keyframes starFlash {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
         }
 
-/* 新增：头像提示文字样式 */
-.头像提示 {
-颜色：#99CCFF；
-字体大小：14px；
-文本阴影：005PXRGBA(153，204，255，0.5)；
-底边距：10px；
-文本对齐: 中心;
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .rain span {
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(transparent, #99ccff);
+            animation: rainFall 1s linear infinite;
+        }
+        @keyframes rainFall {
+            0% { transform: translateY(-10px); opacity: 0; }
+            30% { opacity: 0.8; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
 
-.化身玩家 {
-位置: 相对的;
-宽度：160px；
-高度：160px；
-光标: 指针;
-        }
-.avatar-img{
-<！doctype超文本标记语言>
-<超文本标记语言 朗="zh-CN">
-<头>
-    <元 字符集="UTF-8">
-    <元 姓名="视口" 内容="宽度=设备宽度，初始比例=1.0">
-    <标题>花扇的资源</标题>
-    <链接 rel="样式表" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <风格>
-* {
-边缘: 0;
-填充: 0;
-箱体尺寸: 边框框;
+        .content-wrapper {
+            position: relative;
+            z-index: 3;
+            max-width: 350px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* 缩小了间距 */
         }
 
-身体 {
-背景：#0a051a；
-字体系列: "微软雅黑", 无衬线;
-填充：30px20px；
-溢流y：自动；
+        /* 新增：头像提示文字样式 */
+        .avatar-hint {
+            color: #99ccff;
+            font-size: 14px;
+            text-shadow: 0 0 5px rgba(153, 204, 255, 0.5);
+            margin-bottom: 10px;
+            text-align: center;
         }
 
-.星星 {
-位置: 确定的;
-顶端: 0;
-左: 0;
-宽度: 100%;
-高度: 100%;
-指针事件: 没有一个;
-Z指数：1；
+        .avatar-player {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            cursor: pointer;
         }
-.星星 跨度 {
-位置: 绝对的;
-背景：#FFF；
-边界半径: 50%;
-动画：星闪3s线性的无限的；
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #00ccff;
+            box-shadow: 0 0 20px #00ccff, 0 0 40px rgba(0,204,255,0.3);
+            background: #111;
+            object-fit: cover;
         }
-@keyframes 星闪{
-0%, 100% { 不透明度: 0.2; }
-50% { 不透明度: 1; }
+        .avatar-rotate {
+            animation: avatarSpin 8s linear infinite;
         }
-
-.雨 {
-位置: 确定的;
-顶端: 0;
-左: 0;
-宽度: 100%;
-高度: 100%;
-指针事件: 没有一个;
-Z指数：2；
-        }
-.雨 跨度 {
-位置: 绝对的;
-宽度：1PX；
-背景：线性梯度(透明的，#99ccff)；
-动画：降雨1s线性的无限的；
-        }
-@keyframes 降雨{
-0%{改变：translateY(-10px)；不透明度：0；}
-30% { 不透明度: 0.8; }
-100%{改变：translateY(100VH)；不透明度：0；}
+        @keyframes avatarSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-.内容包装器 {
-位置: 相对的;
-Z指数：3；
-最大宽度：350px；
-页边距：0自动；
-显示：柔性；
-弯曲方向：立柱；
-对齐项：居中；
-间隙：20px；/*缩小了间距*/
+        .volume-btn {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: #0a051a;
+            border-radius: 50%;
+            border: 2px solid #00ccff;
+            box-shadow: 0 0 10px #00ccff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ccff;
+            font-size: 20px;
+            z-index: 4;
+            cursor: pointer;
         }
 
-/* 新增：头像提示文字样式 */
-.avatar-hint{
-颜色：#99ccff；
-font-size:14px；
-text-shadow:005px rgba(153，204，255，0.5)；
-底边距：10px；
-文本对齐：居中；
+        .download-buttons {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0 25px;
+            width: 100%;
+            height: 65px;
+            background: rgba(10,5,26,0.95);
+            border: 2px solid #00ccff;
+            border-radius: 12px;
+            color: #00ccff;
+            text-decoration: none;
+            box-shadow: 0 0 12px rgba(0,204,255,0.4);
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background: rgba(0,204,255,0.1);
+            box-shadow: 0 0 20px #00ccff;
+        }
+        .download-btn i {
+            font-size: 24px;
         }
 
-.avatar-player{
-位置：相对；
-宽度：160px；
-高度：160px；
-光标：指针；
+        audio {
+            display: none;
         }
-.avatar-img{
-宽度：100%；
-高度：100%；
-边界半径：50%；
-边框：4px实心#00ccff；
-box-shadow:0020px#00ccff，0040px rgba(0,204,255,0.3);
-背景：#111；
-对象匹配：盖；
-        }
-.avatar-rotate{
-动画：avatarSpin8s线性无限；
-        }
-@keyframes avatarSpin{
-0%{transform:rotate(0deg)；}
-100%{转换：旋转(360度)；}
-        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="rain"></div>
 
-.volume-btn{
-位置：绝对；
-底部：-10px；
-右：-10px；
-宽度：40px；
-高度：40px；
-背景：#0a051a；
-边界半径：50%；
-边框：2px实心#00ccff；
-box-shadow:0010px#00ccff；
-显示：柔性；
-对齐项：居中；
-对齐-内容：居中；
-颜色：#00ccff；
-font-size:20px；
-Z指数：4；
-光标：指针；
-}
-
-.download-buttons{
-宽度：100%；
-显示：柔性；
-弯曲方向：立柱；
-间隙：25px；
-}
-.download-btn{
-显示：柔性；
-对齐项：居中；
-间隙：15px；
-填充：025px；
-宽度：100%；
-高度：65px；
-背景：rgba(10,5,26,0.95);
-边框：2px实心#00ccff；
-边界半径：12px；
-颜色：#00ccff；
-文字修饰：无；
-box-shadow:0012px rgba(0,204,255,0.4);
-字体大小：18px；
-过渡：所有0.3s轻松；
-}
-.download-btn：悬停{
-背景：rgba(0,204,255,0.1);
-box-shadow:0020px#00ccff；
-}
-.download-btn i{
-font-size:24px；
-}
-
-音频{
-显示：无；
-        }
-填充：0；填充：0style>
-框大小：边框框；箱体尺寸：边框框头>
-<身体>
-    <div 班级="星星"></div>
-正文div身体="雨"></div>
-
-字体系列：“”微软雅黑"，无衬线；字体系列：“”微软雅黑"无衬线="内容包装">
-填料：30px20px；padding
-overflow-y：自动；溢流y：自动div class="avatar-hint">点击头像播放/暂停音乐</div>
+    <div class="content-wrapper">
+        <!-- 新增：头像提示文字 -->
+        <div class="avatar-hint">点击头像播放/暂停音乐</div>
         
-        <div 班级="头像玩家" 身份标识="avatarPlayer">
-。星星img星星="http://glowguide.space/img/68ee842539816.jpg"
-位置：固定；位置：确定的="头像"class="avatar-img"id="avatarImg">
-顶端div:0：0；class="volume-btn"id="volumeBtn">
-左：0；左：0<<<i 班级="fas fa-volume-up" 身份标识="volumeIcon"></</</</我>
-宽度：100div>
-高度：100div>
+        <div class="avatar-player" id="avatarPlayer">
+            <img src="http://glowguide.space/img/68ee842539816.jpg" 
+                 alt="头像" class="avatar-img" id="avatarImg">
+            <div class="volume-btn" id="volumeBtn">
+                <<<<i class="fas fa-volume-up" id="volumeIcon"></</</</i>
+            </div>
+        </div>
 
-Z指数：1；z指数：1div class="download-buttons">
-            <一个 href="https://easylink.cc/yfrzc9" 班级="下载-btn" 目标="_空白">
-。星星<<<我<<i<<我 班级=FAS fa-"下载"></</</</我>
-位置：绝对；位置：绝对的span>花扇魔改双旦debug版本</跨度>
-背景：一个>
-边界半径：50a；b有序半径="https://easylink.cc/iogrda"class="download-btn"target="_blank">
-动画：Starflash3s线性无限；动画<<<我我<i 班级=FAS fa-“下载”s</</</线性的i>
-                <跨度>地铁跑酷墨西哥菜单</跨度>
-@keyframesa>
-            <一个 href="https://easylink.cc/dd4mwe" 班级="下载-btn" 目标="_空白">
-                <<<<我<<i 班级=FAS fa-"下载"></</</</我>
-                <跨度>观看改存档教程</跨度>
-</一个>
-雨a href="https://easylink.cc/n7c9az"class="download-btn"target="_blank">
-位置<<< 我我=<我 班级=FAS>>
-顶端span>下载存档</跨度>
-左a>
-宽度a href="https://v.kuaishou.com/npNbW8hX"class="download-btn"target="_blank">
-高度<<<我我<i 班级=FAS fa-"下载"></</</</我>
-指针事件span>花扇主页没有一个span>
-Z指数a>
-</div>
-雨滴>
+        <div class="download-buttons">
+            <a href="https://easylink.cc/yfrzc9" class="download-btn" target="_blank">
+                <<<<i class="fas fa-download"></</</</i>
+                <span>花扇魔改双旦debug版本</span>
+            </a>
+            <a href="https://easylink.cc/iogrda" class="download-btn" target="_blank">
+                <<<<i class="fas fa-download"></</</</i>
+                <span>地铁跑酷墨西哥菜单</span>
+            </a>
+            <a href="https://easylink.cc/dd4mwe" class="download-btn" target="_blank">
+                <<<<i class="fas fa-download"></</</</i>
+                <span>观看改存档教程</span>
+            </a>
+            <a href="https://easylink.cc/n7c9az" class="download-btn" target="_blank">
+                <<<<i class="fas fa-download"></</</</i>
+                <span>下载存档</span>
+            </a>
+            <a href="https://v.kuaishou.com/npNbW8hX" class="download-btn" target="_blank">
+                <<<<i class="fas fa-download"></</</</i>
+                <span>花扇主页</span>
+            </a>
+        </div>
+    </div>
 
-宽度音频ID=PX src="http://share.sunjiada.cn/data/music_56762242.mp3"></音频>
+    <audio id="musicPlayer" src="http://share.sunjiada.cn/data/music_56762242.mp3"></audio>
 
-动画脚本>
-常量stars=document.querySelector('.stars')；
-@keyframes 降雨=150；
-for(让i=改变；translateY
-Const星=文件.
-Const size=Math.改变()*translate Y+0.5；
-Const left=Math.random()*100；
-Const top=Math.random()*100；
-内容包装器delay=Math.random()*5；
-位置.相对的.width='${size}px'；
-Z指数.style.height='${size}px'；
-最大宽度.style.PX=“${left}%”；
-边缘.风格。自动=“${top}%”；
-显示.弯曲.animationDelay='${delay}s'；
-挠曲方向.柱(星形)；
-对齐项目
+    <script>
+        const stars = document.querySelector('.stars');
+        const starCount = 150;
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('span');
+            const size = Math.random() * 2 + 0.5;
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const delay = Math.random() * 5;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${left}%`;
+            star.style.top = `${top}%`;
+            star.style.animationDelay = `${delay}s`;
+            stars.appendChild(star);
+        }
 
-Const rain=document.querySelector('.rain')；
-Const rainCount=200；
-/*新增：头像提示文字样式*/(设i=0；i
-Const下降=文件'跨度')；
-颜色：CCFF；=Math.random()*20+10；
-字体大小：14px=Math.random()*100；
-文本阴影：005PXRGBA=Math153，204，255，0.5random()*2；
-底边距：10PX.height='${height}px'；
-文本对齐.中心.left=“${left}%”；
-drop.style.animationDelay='${delay}s'；
-rain.appendChild(drop)；
-化身玩家
+        const rain = document.querySelector('.rain');
+        const rainCount = 200;
+        for (let i = 0; i < rainCount; i++) {
+            const drop = document.createElement('span');
+            const height = Math.random() * 20 + 10;
+            const left = Math.random() * 100;
+            const delay = Math.random() * 2;
+            drop.style.height = `${height}px`;
+            drop.style.left = `${left}%`;
+            drop.style.animationDelay = `${delay}s`;
+            rain.appendChild(drop);
+        }
 
-宽度musicplayer=PX.getElementById('musicplayer')；
-高度avatarImg=PX.getElementById('avatarImg')；
-光标指针=document.getElementById('avatarPlayer')；
-Const volumeBtn=document.getElementById('volumeBtn')；
-avatar-img volumeIcon=文档.getElementById('volumeIcon')；
-<！doctype超文本标记语言>false；
+        const musicPlayer = document.getElementById('musicPlayer');
+        const avatarImg = document.getElementById('avatarImg');
+        const avatarPlayer = document.getElementById('avatarPlayer');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+        let isMuted = false;
 
-<头>addEventListener('click'，(e)=>{
-<元="UTF-8">target.closest('.volume-btn')){
-<元 姓名音乐播放器="视口"
-<标题>花扇的资源()
-<链接.rel%{改变：translateY(-10px)；不透明度：0；}
-<风格30% { 不透明度: 0.8; }
-musicPlayer.pause()；
-边缘.classList.remove('化身-旋转')；
-填充
-箱体尺寸
-});
+        avatarPlayer.addEventListener('click', (e) => {
+            if (!e.target.closest('.volume-btn')) {
+                if (musicPlayer.paused) {
+                    musicPlayer.play().catch(err => {});
+                    avatarImg.classList.add('avatar-rotate');
+                } else {
+                    musicPlayer.pause();
+                    avatarImg.classList.remove('avatar-rotate');
+                }
+            }
+        });
 
-身体.addEventListener('click'，(e)=>{
-背景：#0a051a；stopPropagation()；
-字体系列 = !"微软雅黑";
-填充.muted=PX；
-'fas fa-volume-off'：'fas fa-volume-up'；
-间隙：20px；/*缩小了间距*/
+        volumeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isMuted = !isMuted;
+            musicPlayer.muted = isMuted;
+            volumeIcon.className = isMuted ? 'fas fa-volume-off' : 'fas fa-volume-up';
+        });
 
-星星.addEventListener('ended'，()=>{
-/* 新增：头像提示文字样式 */
-.avatar-hint{
+        musicPlayer.addEventListener('ended', () => {
+            avatarImg.classList.remove('avatar-rotate');
+        });
 
-font-size:14px；
-text-shadow:005px rgba(153，204，255，0.5)；
-底边距：10px；
-文本对齐：居中；
-// 如果自动播放被阻止，仍然给用户一个视觉提示
-星星.跨度.添加('化身-旋转')；
-.avatar-player{
-位置：相对；
-宽度：160px；
-高度：160px；
-光标：指针；
-</超文本标记语言>
+        // 页面加载完成后自动播放音乐并旋转头像
+        document.addEventListener('DOMContentLoaded', () => {
+            musicPlayer.play().catch(err => {
+                console.log("自动播放被浏览器阻止，请点击页面后重试:", err);
+                // 如果自动播放被阻止，仍然给用户一个视觉提示
+                avatarImg.classList.add('avatar-rotate');
+            });
+            avatarImg.classList.add('avatar-rotate');
+        });
+    </script>
+</body>
+</html>
