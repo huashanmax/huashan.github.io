@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>花扇的资源站</title>
     <style>
-        /* 原有样式不变，省略重复代码 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            contain: layout paint;
         }
-
         body {
             min-height: 100vh;
             background: #0a0518;
             color: #fff;
             font-family: "Microsoft YaHei", sans-serif;
-            overflow-x: hidden;
-            position: relative;
             background-image: 
                 radial-gradient(1px 1px at 10px 20px, #e0e7ff, rgba(0,0,0,0.8)),
                 radial-gradient(1px 1px at 30px 80px, #e0e7ff, rgba(0,0,0,0.8)),
@@ -30,43 +25,15 @@
             background-repeat: repeat;
             background-size: 120px 120px;
         }
-
-        .meteor {
-            position: fixed;
-            top: -10%;
-            width: 2px;
-            height: 80px;
-            background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.2));
-            box-shadow: 0 0 8px #fff;
-            animation: meteor-fall linear infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .meteor:nth-child(1) { left: 15%; animation-duration: 3s; }
-        .meteor:nth-child(2) { left: 35%; animation-duration: 4s; animation-delay: 0.5s; }
-        .meteor:nth-child(3) { left: 55%; animation-duration: 2.8s; animation-delay: 1s; }
-        .meteor:nth-child(4) { left: 75%; animation-duration: 3.5s; animation-delay: 0.3s; }
-        .meteor:nth-child(5) { left: 95%; animation-duration: 2.5s; animation-delay: 0.8s; }
-
-        @keyframes meteor-fall {
-            0% { transform: translateY(0) rotate(8deg); opacity: 1; }
-            100% { transform: translateY(120vh) rotate(8deg); opacity: 0; }
-        }
-
         .header {
             text-align: center;
             padding: 40px 0 20px;
-            position: relative;
-            z-index: 1;
         }
-
         .header h1 {
             font-size: 28px;
             color: #f0e6ff;
             margin-bottom: 30px;
         }
-
         .avatar-container {
             width: 150px;
             height: 150px;
@@ -74,7 +41,6 @@
             position: relative;
             cursor: pointer;
         }
-
         .avatar {
             width: 100%;
             height: 100%;
@@ -82,31 +48,21 @@
             object-fit: cover;
             border: 4px solid #c084fc;
             transition: border-color 0.3s;
-            loading: lazy;
-        }
-
-        .avatar.loaded {
             animation: rotate 15s linear infinite;
-            will-change: transform;
         }
-
         .avatar-container:hover .avatar {
             border-color: #f472b6;
+            box-shadow: 0 0 20px #f472b6;
         }
-
         @keyframes rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
         .btn-container {
             max-width: 600px;
             margin: 50px auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 1;
         }
-
         .download-btn {
             display: block;
             width: 100%;
@@ -124,99 +80,32 @@
             line-height: 60px;
             text-decoration: none;
         }
-
         .download-btn span {
             margin-right: 8px;
             color: #ffd700;
         }
-
         .download-btn:hover {
             transform: translateY(-3px);
         }
-
-        .error-modal,
-        /* 新增：自动播放提示弹窗样式 */
-        .auto-play-tip {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .modal-content,
-        .tip-content {
-            width: 80%;
-            max-width: 400px;
-            background: #1e1b4b;
-            border-radius: 15px;
-            padding: 30px;
+        /* 新增：音乐状态指示器样式 */
+        .music-status {
             text-align: center;
-        }
-
-        .tip-content h3 {
-            color: #a78bfa;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-
-        .tip-content p {
-            color: #e0e7ff;
-            margin-bottom: 25px;
-            font-size: 16px;
-        }
-
-        .modal-content h3 {
-            color: #f87171;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-
-        .modal-content p {
-            color: #e0e7ff;
-            margin-bottom: 25px;
-            font-size: 16px;
-        }
-
-        .refresh-btn,
-        .confirm-btn {
-            padding: 12px 30px;
-            background: #3b82f6;
-            border: none;
-            border-radius: 25px;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .refresh-btn:hover,
-        .confirm-btn:hover {
-            background: #2563eb;
+            margin-top: 20px;
+            color: #c084fc;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="meteor"></div>
-    <div class="meteor"></div>
-    <div class="meteor"></div>
-    <div class="meteor"></div>
-    <div class="meteor"></div>
-
     <div class="header">
         <h1>花扇的资源站</h1>
-        <div class="avatar-container" id="avatarContainer">
-            <img src="http://glowguide.space/img/68ee842539816.jpg" alt="头像" class="avatar" id="avatar">
+        <div class="avatar-container" id="musicToggle">
+            <img src="http://glowguide.space/img/68ee842539816.jpg" alt="头像" class="avatar">
         </div>
+        <div class="music-status">点击头像播放/暂停音乐</div>
     </div>
-
     <div class="btn-container">
-        <a href="https://v.kuaishou.com/npNbW8hX" class="download-btn" class="download-btn" target="_blank"><span>1</span>花扇快手主页</a>
+        <a href="https://v.kuaishou.com/npNbW8hX" class="download-btn" target="_blank"><span>1</span>花扇快手主页</a>
         <a href="https://v.douyin.com/Y9QlHOUdQEs/ 4@4.com :1pm" class="download-btn" target="_blank"><span>2</span>花扇抖音主页</a>
         <a href="https://www.123865.com/s/DHheVv-ZYFb" class="download-btn" target="_blank"><span>3</span>花扇的版本站</a>
         <a href="https://easylink.cc/yfrzc9" class="download-btn" target="_blank"><span>4</span>花扇改双旦debug</a>
@@ -225,98 +114,52 @@
         <a href="https://easylink.cc/n7c9az" class="download-btn" target="_blank"><span>7</span>墨西哥存档2025</a>
         <a href="https://你的新链接" class="download-btn" target="_blank"><span>8</span>下载安装包</a>
         <a href="https://你的新链接" class="download-btn" target="_blank"><span>9</span>下载安装包</a>
-
+        <a href="https://你的新链接" class="download-btn" target="_blank"><span>10</span>下载安装包</a>
     </div>
-
-    <div class="error-modal" id="errorModal">
-        <div class="modal-content">
-            <h3>网页加载失败</h3>
-            <p>请尝试刷新页面或重新进入</p>
-            <button class="refresh-btn" id="refreshBtn">刷新页面</button>
-        </div>
-    </div>
-
-    <!-- 新增：自动播放提示弹窗 -->
-    <div class="auto-play-tip" id="autoPlayTip">
-        <div class="tip-content">
-            <h3>音乐自动播放提示</h3>
-            <p>点击任意位置开始播放背景音乐</p>
-            <button class="confirm-btn" id="confirmBtn">知道了</button>
-        </div>
-    </div>
-
     <script>
-        window.addEventListener('load', () => {
-            document.getElementById('avatar').classList.add('loaded');
-            // 新增：页面加载后尝试自动播放音乐
-            initAutoPlayMusic();
-        });
-
-        // 新增：音乐初始化与自动播放逻辑
-        let bgMusic = null;
-        let isPlaying = false;
-        const autoPlayTip = document.getElementById('autoPlayTip');
-        const confirmBtn = document.getElementById('confirmBtn');
-        const avatarContainer = document.getElementById('avatarContainer');
-
-        // 初始化音乐实例
-        function initAutoPlayMusic() {
-            bgMusic = new Audio();
-            bgMusic.src = "http://share.sunjiada.cn/data/music_67134445.mp3";
-            bgMusic.preload = "auto"; // 这里的音乐链接提前加载音乐资源
-
-            // 尝试自动播放，失败则显示提示
-            bgMusic.play().then(() => {
-                isPlaying = true;
-                avatarContainer.style.boxShadow = '0 0 20px #f472b6';
-            }).catch(() => {
-                autoPlayTip.style.display = 'flex'; // 被拦截时显示提示
+        // 预加载音效
+        const clickSound = new Audio('http://share.sunjiada.cn/data/music_57832650.mp3');
+        
+        // 为所有按钮添加点击事件
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // 播放音效
+                clickSound.currentTime = 0; // 重置播放位置，允许连续点击
+                clickSound.play().catch(err => {
+                    console.log('播放音效失败:', err);
+                });
             });
-        }
-
-        // 点击提示弹窗按钮/页面任意位置触发播放
-        confirmBtn.addEventListener('click', triggerPlayMusic);
-        document.body.addEventListener('click', (e) => {
-            // 若提示显示，且点击的不是弹窗内容（避免重复触发）
-            if (autoPlayTip.style.display === 'flex' && !e.target.closest('.tip-content')) {
-                triggerPlayMusic();
-            }
         });
 
-        // 触发音乐播放
-        function triggerPlayMusic() {
-            if (!isPlaying) {
-                bgMusic.play();
-                isPlaying = true;
-                avatarContainer.style.boxShadow = '0 0 20px #f472b6';
-                autoPlayTip.style.display = 'none'; // 隐藏提示
-            }
-        }
+        // 背景音乐功能
+        const bgMusic = new Audio('http://share.sunjiada.cn/data/music_67134445.mp3');
+        let isMusicPlaying = false;
+        const musicToggle = document.getElementById('musicToggle');
 
-        // 保留原有头像控制播放/暂停
-        avatarContainer.addEventListener('click', () => {
-            if (isPlaying) {
+        // 点击头像播放/暂停音乐
+        musicToggle.addEventListener('click', function() {
+            if (isMusicPlaying) {
                 bgMusic.pause();
-                avatarContainer.style.boxShadow = 'none';
+                this.style.boxShadow = 'none';
             } else {
-                bgMusic.play();
-                avatarContainer.style.boxShadow = '0 0 20px #f472b6';
+                bgMusic.play().catch(err => {
+                    console.log('播放音乐失败，需要用户交互:', err);
+                });
+                this.style.boxShadow = '0 0 30px #f472b6';
             }
-            isPlaying = !isPlaying;
+            isMusicPlaying = !isMusicPlaying;
         });
 
-        // 原有错误弹窗逻辑不变
-        const errorModal = document.getElementById('errorModal');
-        const refreshBtn = document.getElementById('refreshBtn');
-
-        window.addEventListener('error', (e) => {
-            if (e.target.tagName === 'IMG' || e.target.tagName === 'AUDIO') {
-                errorModal.style.display = 'flex';
-            }
+        // 当音乐实际开始播放时，更新状态
+        bgMusic.addEventListener('play', function() {
+            isMusicPlaying = true;
+            musicToggle.style.boxShadow = '0 0 30px #f472b6';
         });
 
-        refreshBtn.addEventListener('click', () => {
-            window.location.reload();
+        // 当音乐暂停时，更新状态
+        bgMusic.addEventListener('pause', function() {
+            isMusicPlaying = false;
+            musicToggle.style.boxShadow = 'none';
         });
     </script>
 </body>
